@@ -1,0 +1,47 @@
+services:
+  # Database Service
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: securevault-postgres
+    environment:
+      POSTGRES_DB: securevault
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d securevault"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - securevault-network
+
+  # Spring Boot API Service
+  api-service:
+    build:
+      context: ./api/api
+      dockerfile: ../../Dockerfile
+    container_name: securevault-api-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/securevault
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=secret
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - APP_JWT_SECRET=a-very-long-secret-key-that-must-be-at-least-32-bytes-long-change-me
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    networks:
+      - securevault-network
+
+volumes:
+  pgdata:
+
+networks:
+  securevault-network:
+    driver: bridge
