@@ -1,4 +1,9 @@
 # SecureVault API
+![Java](https://img.shields.io/badge/Java-25-blue)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![Status](https://img.shields.io/badge/Status-In_Development-yellow)
 
 SecureVault is an enterprise-grade backend authentication and credential management engine built using modern Java architecture. The system provides secure, stateless API endpoints for managing users, organizations, vaults, and encrypted secrets.
 
