@@ -25,6 +25,19 @@ SecureVault is an enterprise-grade backend authentication and credential managem
 
 ---
 
+## 🔄 System Architecture
+
+```mermaid
+flowchart TD
+A[Client] --> B[Spring Boot API]
+B --> C[Spring Security]
+C --> D[JWT Authentication]
+D --> E[PostgreSQL]
+E --> F[Docker]
+```
+
+---
+
 ## 📂 Project Structure
 
 ```text
