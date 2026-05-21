@@ -106,3 +106,8 @@ Use this mode if you are actively editing Java code in your IDE and want fast co
 2. Integrating Swagger / OpenAPI 3 specifications for interactive endpoints.
 3. Implementing a dual-token JWT mechanism (Short-lived Access + Database-backed Refresh).
 4. Activating application-level AES-256 transparent encryption-at-rest for values before database write.
+
+---
+
+## Author
+**Maksym Zhelezniakov** - https://github.com/Max-Engineer
