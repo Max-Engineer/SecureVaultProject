@@ -63,7 +63,7 @@ Use this mode if you just want to spin up and test the full API ecosystem withou
 
 1. Clone the repository:
 ```bash
-   git clone [https://github.com/YOUR_USERNAME/SecureVaultProject.git](https://github.com/YOUR_USERNAME/SecureVaultProject.git)
+   git clone https://github.com/Max-Engineer/SecureVaultProject.git
    cd SecureVaultProject
 ```
 2. Launch the entire multi-container architecture hands-free:
@@ -97,3 +97,12 @@ Use this mode if you are actively editing Java code in your IDE and want fast co
 | **GET** | `/api/secrets` | Retrieve authorized vault items | Yes (JWT) |
 | **PUT** | `/api/secrets/{id}` | Update an existing encrypted secret's key or value payload by its unique ID | Yes (JWT) |
 | **DELETE** | `/api/secrets/{id}` | Permanently remove a specific encrypted secret payload by its unique ID | Yes (JWT) |
+
+---
+
+## 📈 Future Improvements
+
+1. Setting up automated Integration Test suites using JUnit 5 and MockMvc.
+2. Integrating Swagger / OpenAPI 3 specifications for interactive endpoints.
+3. Implementing a dual-token JWT mechanism (Short-lived Access + Database-backed Refresh).
+4. Activating application-level AES-256 transparent encryption-at-rest for values before database write.
